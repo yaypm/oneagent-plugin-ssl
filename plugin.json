@@ -1,0 +1,36 @@
+  {
+  "version": "1.0",
+  "activation": "SnapshotEntry",
+  "name": "custom.python.ssl",
+  "type": "python",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "source": {
+    "package": "ssl",
+    "className": "SslExpiryPlugin"
+  },
+  "processTypeNames": ["WINDOWS_SYSTEM"],
+  "ui":{
+	"keycharts": [
+	{
+		"group": "MSMQ",
+		"title": "Queue size",
+		"series": [      
+			{
+        "key": "daysRemaining",
+        "unit": "Count",
+        "displayname": "Number of days remaining"			
+      }
+		]
+	}
+	]
+  },
+  "metrics": [
+  { 
+      "timeseries":{ 
+		  "key": "daysRemaining",
+      "unit": "Count",
+      "displayname": "Number of days remaining"	
+    }
+  }
+  ]
+}
