@@ -12,8 +12,8 @@
   "ui":{
 	"keycharts": [
 	{
-		"group": "MSMQ",
-		"title": "Queue size",
+		"group": "SSL",
+		"title": "Certificate days remaining",
 		"series": [      
 			{
         "key": "daysRemaining",
