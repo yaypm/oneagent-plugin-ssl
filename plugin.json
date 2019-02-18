@@ -5,18 +5,18 @@
   "type": "python",
   "entity": "PROCESS_GROUP_INSTANCE",
   "source": {
-    "package": "ssl",
-    "className": "SslExpiryPlugin"
+    "package": "ssl_plugin",
+    "className": "SSLPlugin"
   },
   "processTypeNames": ["WINDOWS_SYSTEM"],
   "ui":{
 	"keycharts": [
 	{
-		"group": "SSL",
-		"title": "Certificate days remaining",
+		"group": "SSL certs",
+		"title": "Days remaining",
 		"series": [      
 			{
-        "key": "daysRemaining",
+        "key": "days_remaining",
         "unit": "Count",
         "displayname": "Number of days remaining"			
       }
@@ -26,11 +26,24 @@
   },
   "metrics": [
   { 
-      "timeseries":{ 
-		  "key": "daysRemaining",
+    "timeseries":{ 
+		  "key": "days_remaining",
       "unit": "Count",
       "displayname": "Number of days remaining"	
-    }
+    },
+    "alert_settings": [
+      {
+          "alert_id": "ssl_expiry",
+          "event_type": "ERROR_EVENT",
+          "event_name": "SSL certificate expiring soon",
+          "description": "SSL certificate of the application delivered by the OneAgent will expire in 30 days",
+          "threshold": 30.0,
+          "alert_condition": "BELOW",
+          "samples":5,
+          "violating_samples":1,
+         "dealerting_samples":5
+      }
+    ]
   }
   ]
 }
